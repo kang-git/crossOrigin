@@ -15,13 +15,8 @@
     <script type="text/javascript">
         const reqBtn = document.getElementById('requestBtn')
         reqBtn.addEventListener('click', _ => {
-            // 搭建bff层时请求端口直接该为前端自身web服务的端口即可
-            // axios.post('http://127.0.0.1:3000/api/task').then(res => {
-                
-            // nginx反向代理时需要访问nginx代理出来的web服务端口
-            // 实际上web服务启动在 3000 端口
-            // 实际上api服务启动在 4000 端口
-            axios.post('http://127.0.0.1:5000/api/task').then(res => {
+            // 3000端口的web页面去请求4000端口的api服务会跨域
+            axios.post('http://127.0.0.1:4000/api/task').then(res => {
                 console.log(res.data)
                 const resBox = document.getElementById('resBox')
                 resBox.innerText = JSON.stringify(res.data)
