@@ -15,7 +15,7 @@
     <script type="text/javascript">
         const reqBtn = document.getElementById('requestBtn')
         reqBtn.addEventListener('click', _ => {
-            // 3000端口的web页面去请求4000端口的api服务会跨域
+            // 后端配置对应响应头即可
             axios.post('http://127.0.0.1:4000/api/task').then(res => {
                 console.log(res.data)
                 const resBox = document.getElementById('resBox')
